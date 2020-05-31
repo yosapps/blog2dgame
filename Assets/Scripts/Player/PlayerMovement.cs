@@ -5,12 +5,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
   public float runSpeed = 40f;
-
   float horizontalMove = 0f;
   bool jump = false;
   private CharacterController2D controller;
-
-
 
   private void Awake()
   {
