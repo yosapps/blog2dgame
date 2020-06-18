@@ -5,16 +5,19 @@ using TMPro;
 
 public class DialogManager : MonoBehaviour
 {
-  public GameObject DialogPanel;
-  public TextMeshProUGUI nameText;
-  public TextMeshProUGUI dialogueText;
   public float timeNext = 0.05f;
+  private GameObject DialogPanel;
+  private TextMeshProUGUI nameText;
+  private TextMeshProUGUI dialogueText;
   private Queue<Dialog.contentObject> sentences;
   private Dialog.contentObject nextDialog;
 
   void Start()
   {
     sentences = new Queue<Dialog.contentObject>();
+    DialogPanel = GameObject.Find("Dialog").transform.Find("DialogPanel").gameObject;
+    nameText = DialogPanel.transform.Find("DialogBox").transform.Find("name").gameObject.GetComponent<TextMeshProUGUI>();
+    dialogueText = DialogPanel.transform.Find("DialogBox").transform.Find("content").gameObject.GetComponent<TextMeshProUGUI>();
   }
 
   public void StartDialogue(Dialog dialogue)
