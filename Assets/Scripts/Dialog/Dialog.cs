@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class Dialog : MonoBehaviour
 {
-  public string nameDialog;
-  [TextArea(3, 10)]
-  public string[] sentences;
+  public contentObject[] sentences;
   private DialogManager dialogManager;
+
+  [System.Serializable]
+  public class contentObject
+  {
+    public string showName;
+    [TextArea(3, 10)]
+    public string sentence;
+  }
 
   void Update()
   {
