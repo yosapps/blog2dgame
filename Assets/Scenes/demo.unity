@@ -626,8 +626,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - showName: 
-    sentence: 
+  - showName: "\u30AE\u30EB\u30AC\u30E1"
+    sentence: "\u307B\u3093\u3060\u306A\u304C\u3042\u308B\u3002\n\u304B\u3044\u306F\u3064\u306E\u307B\u3093\u304C\u304A\u3044\u3066\u3042\u308B\u3002"
 --- !u!61 &860983299
 BoxCollider2D:
   m_ObjectHideFlags: 0
