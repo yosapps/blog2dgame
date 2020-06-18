@@ -8,6 +8,6 @@ public class CameraFollow : MonoBehaviour
   // Update is called once per frame
   void FixedUpdate()
   {
-    this.transform.position = Vector3.Lerp(this.transform.position, new Vector3(followTransform.position.x, followTransform.position.y + 2f, this.transform.position.z), Time.deltaTime * 2f);
+    this.transform.position = Vector3.Lerp(this.transform.position, new Vector3(followTransform.position.x, followTransform.position.y + 1.5f, this.transform.position.z), Time.deltaTime * 2f);
   }
 }
