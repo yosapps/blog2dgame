@@ -27,6 +27,5 @@ public class CloudManager : MonoBehaviour
       Instantiate(cloudObjects[Random.Range(0, cloudObjects.Length)], new Vector3(x, y, 0), Quaternion.identity);
       nextAttackDelay = Random.Range(minDetay, maxDelay);
     }
-
   }
 }
