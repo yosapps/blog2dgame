@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Cloud
+  - Crystal
   layers:
   - Default
   - TransparentFX
@@ -16,9 +17,9 @@ TagManager:
   - 
   - Player
   - Terrain
-  - 
-  - 
-  - 
+  - Platform
+  - Cloud
+  - Remover
   - 
   - 
   - 
