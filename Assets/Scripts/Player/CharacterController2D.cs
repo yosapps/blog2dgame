@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
+using System.Collections;
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -71,7 +71,8 @@ public class CharacterController2D : MonoBehaviour
     if (m_Grounded && jump)
     {
       // Add a vertical force to the player.
-      m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+      if (m_Rigidbody2D.velocity.y < 0.1f && m_Rigidbody2D.velocity.y > -0.1f)
+        m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
     }
 
     if (!m_Grounded)
@@ -94,4 +95,9 @@ public class CharacterController2D : MonoBehaviour
     theScale.x *= -1;
     transform.localScale = theScale;
   }
+  // IEnumerator knockBack()
+  // {
+  //   m_Rigidbody2D.AddForce(new Vector2(transform.localScale.x * -150, 250));
+  //   yield return null;
+  // }
 }
