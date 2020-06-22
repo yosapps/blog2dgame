@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+  public bool isCanMove = true;
   public float runSpeed = 40f;
-  float horizontalMove = 0f;
-  bool jump = false;
+  private float horizontalMove = 0f;
+  private bool jump = false;
   private CharacterController2D controller;
 
   private void Awake()
@@ -17,10 +18,17 @@ public class PlayerMovement : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-    if (Input.GetButtonDown("Jump"))
+    if (isCanMove)
     {
-      jump = true;
+      horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+      if (Input.GetButtonDown("Jump"))
+      {
+        jump = true;
+      }
+    }
+    else
+    {
+      horizontalMove = 0f;
     }
   }
 
@@ -29,5 +37,23 @@ public class PlayerMovement : MonoBehaviour
     // Move our character
     controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
     jump = false;
+  }
+
+  public IEnumerator DeadPlayer()
+  {
+    stopMovingPlayer();
+    transform.position = GameObject.Find("GameController").GetComponent<GameController>().respawnPosition.transform.position;
+    yield return new WaitForSeconds(1f);
+    startMovingPlayer();
+  }
+
+  public void stopMovingPlayer()
+  {
+    isCanMove = false;
+  }
+
+  public void startMovingPlayer()
+  {
+    isCanMove = true;
   }
 }
